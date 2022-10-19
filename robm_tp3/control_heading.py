@@ -110,7 +110,7 @@ class ControlHeadingNode(Node):
         w = 0.0 # TODO
         
         # Envoi de la commande sur le topic ROS
-        self.publish_speed_cmd(0, w)
+        self.publish_speed_cmd(0.0, w)
 
 
 def main(args=None):
