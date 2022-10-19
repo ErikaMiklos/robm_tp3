@@ -42,7 +42,7 @@ class MoveNode(Node):
         # Cap désiré
         self.theta_d = None
         # Publishers et subscribers
-        self._sub_goal = self.create_subscription(PoseStamped, "move_base_simple/goal", self.goal_callback, 1)
+        self._sub_goal = self.create_subscription(PoseStamped, "/goal_pose", self.goal_callback, 1)
         self._sub_odom = self.create_subscription(Odometry, "odometry", self.odom_callback, 1)
         self._cmd_pub = self.create_publisher(Twist, 'cmd_vel', 1)
         # compteur pour arrêter l'envoi de commandes après arrêt du robot
