@@ -2,7 +2,7 @@
 	<node name="nxt_driver" pkg="robm_nxt" exec="nxt_driver" output="screen" />
 	
 	<!-- Odometrie: choisir soit le noeud du TP2, soit le noeud fourmi au TP3 -->
-	<node name="odometry" pkg="robm_tp2" exec="odometry" />
+	<node name="odometry" pkg="robm_tp2" exec="odometry" output="log" />
 	<!-- <node name="odometry" pkg="robm_move" type="odometry_obf.py" /> -->
 	
 	<node name="base_controller" pkg="robm_tp2" exec="base_controller" />
