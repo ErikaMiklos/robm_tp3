@@ -12,6 +12,11 @@
   <test_depend>ament_pep257</test_depend>
   <test_depend>python3-pytest</test_depend>
 
+  <exec_depend>ros2launch</exec_depend>
+  <exec_depend>robm_nxt</exec_depend>
+  <exec_depend>robm_tp2</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+
   <depend>robm_nxt_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>sensor_msgs</depend>
