@@ -96,16 +96,16 @@ class MoveNode(Node):
         theta = yaw_from_quaternion_msg(odom.pose.pose.orientation)
 
         # TODO: Calculer la distance au but
-        d = 0.0  # TODO
+        d = sqrt((self.x_d-x)**2 + (self.y_d-y)**2)
         
         # TODO: Calculer le cap à suivre
-        
+        self.theta_d = atan2((self.x_d-x),(self.y_d-y))
         
         # TODO: Calculer la vitesse angulaire du robot (cf. control_heading.py)
-        w = 0.0  # TODO
+        w = 0.3  # TODO
         
         # TODO: Calculer la vitesse linéaire du robot
-        v = 0.0  # TODO
+        v = 0.1  # TODO
         
         # Publish speed command (in not zero for too long)
         self.publish_speed_cmd(v, w)

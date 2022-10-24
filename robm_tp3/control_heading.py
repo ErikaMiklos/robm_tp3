@@ -14,6 +14,7 @@ Publie :
     - cmd_vel (geometry_msgs/Twist): commande en vitesse
 """
 
+from distutils.log import error
 import rclpy
 from rclpy.node import Node
 
@@ -96,18 +97,19 @@ class ControlHeadingNode(Node):
         theta = yaw_from_quaternion_msg(odom.pose.pose.orientation)
 
         # TODO: Calculer l'erreur de cap (différence entre cap désiré et cap actuel)
-        #err = ??
+        err = self.theta_d-theta
         
         # TODO: (dans un second temps)
         # Utiliser la fonction dent de scie (sawtooth) pour calculer
         # la valeur principale de l'erreur de cap. Comparer le comportement avec
         # et sans cette amélioration.
-        
+        err = sawtooth(err)
         
         # TODO: Calculer la vitesse de rotation à appliquer
         # - Commande proportionnelle à l'erreur
         # - Arrêt si suffisamment proche du but
-        w = 0.0 # TODO
+        K = 1.0
+        w = - K * err
         
         # Envoi de la commande sur le topic ROS
         self.publish_speed_cmd(0.0, w)
