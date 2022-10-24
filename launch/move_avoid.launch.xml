@@ -1,0 +1,23 @@
+<launch>
+	<node name="nxt_driver" pkg="robm_nxt" exec="nxt_driver" output="screen" />
+	
+	<node name="odometry" pkg="robm_tp2" exec="odometry" />
+	
+	<node name="base_controller" pkg="robm_tp2" exec="base_controller" />
+
+	<node name="move" pkg="robm_tp3" exec="move" >
+		<remap from="cmd_vel" to="cmd_vel_desired" />
+	</node>
+	
+	<node name="obstacle_avoidance" pkg="robm_tp3" exec="obstacle_avoid">
+		<remap from="range" to="nxt/sonar" />
+	</node>
+
+	<node name="map_odom_tf_pub" pkg="tf2_ros" exec="static_transform_publisher" 
+		args="0 0 0 0 0 0 map odom" />
+	
+	<!-- Affichage -->
+	<!--<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robm_move)/rviz/odometry_view.rviz" />
+	<node name="speed_plot" pkg="rqt_plot" type="rqt_plot" args="/cmd_vel/linear/x /cmd_vel/angular/z" />
+	<node name="dist_plot" pkg="rqt_plot" type="rqt_plot" args="/nxt/sonar/range" />-->
+</launch>

@@ -1,5 +1,7 @@
 <launch>
-	<node name="nxt_simu" pkg="robm_nxt" exec="nxt_simu" output="screen" />
+	<node name="nxt_simu" pkg="robm_nxt" exec="nxt_simu" output="screen" >
+		<param name="map" value="corridor" />
+	</node>
 	
 	<!-- Odometrie: choisir soit le noeud du TP2, soit le noeud fourmi au TP3 -->
 	<node name="odometry" pkg="robm_tp2" exec="odometry" output="log" />

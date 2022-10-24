@@ -26,6 +26,8 @@ setup(
         'console_scripts': [
             'control_heading = robm_tp3.control_heading:main',
             'move = robm_tp3.move:main',
+            'waypoints = robm_tp3.waypoints:main',
+            'obstacle_avoid = robm_tp3.obstacle_avoid:main',
         ],
     },
 )
