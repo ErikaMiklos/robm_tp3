@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""robm_move/control_heading.py - Commande proportionnele du cap
+"""robm_tp3/control_heading.py - Commande proportionnele du cap
 
 Ce noeud permet de contrôler l'orientation du robot.
 Il met en oeuvre une commande proportionnelle en vitesse de rotation.

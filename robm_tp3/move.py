@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""robm_move/move.py - Navigation vers un point
+"""robm_tp3/move.py - Navigation vers un point
 
 Ce noeud permet de faire naviguer le robot jusqu'à un but spécifié dans
 RViz.
 
 S'abonne à :
-    - move_base_simple/goal (geometry_msgs/PoseStamped): but
+    - /goal_pose (geometry_msgs/PoseStamped): but
     - odometry (nav_msgs/Odometry): pose du robot calculée par odométrie
 Publie :
     - cmd_vel (geometry_msgs/Twist): commande en vitesse
