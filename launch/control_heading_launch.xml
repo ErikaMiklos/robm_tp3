@@ -13,6 +13,6 @@
 		args="0 0 0 0 0 0 map odom" />
 
 	<!-- Affichage -->
-	<!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find robm_move)/rviz/odometry_view.rviz" />
-	<node name="error_plot" pkg="rqt_plot" type="rqt_plot" args="/cmd_vel/linear/x /cmd_vel/angular/z" /> -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robm_move)/rviz/odometry_view.rviz" />
+	<node name="error_plot" pkg="rqt_plot" type="rqt_plot" args="/cmd_vel/linear/x /cmd_vel/angular/z" /> 
 </launch>

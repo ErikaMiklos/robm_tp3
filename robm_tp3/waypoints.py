@@ -41,8 +41,9 @@ class Waypoints(Node):
 		"""Constructeur de la classe Waypoints"""
 		super().__init__('waypoints')
 
+
 		# Liste des waypoints
-		#self.waypoints = [ ??? ]  # TODO
+		self.waypoints = [ (0.2,0.3,0.3), (0.1,0.15,0.3)]  # TODO
 
 		# subscribers et publishers
 		self._sub_odom = self.create_subscription(Odometry, "odometry", self.odom_callback, 10)
@@ -56,11 +57,24 @@ class Waypoints(Node):
 		y = odom_msg.pose.pose.position.y
 
 		# TODO
+		xGoal,yGoal,aGoal = self.listCoord[self.listCoord.count-1]
 
-		goal = PoseStamped()
-		#goal.pose.position.x = ?? # TODO
-		#goal.pose.position.y = ?? # TODO
-		#goal.pose.orientation = quaternion_msg_from_yaw(??) # TODO
+		dist = sqrt((self.xGoal-x)**2 + (self.yGoal-y)**2)
+
+		if(dist>0.1):
+			goal = PoseStamped()
+			goal.pose.position.x = xGoal # TODO
+			goal.pose.position.y = yGoal# TODO
+			goal.pose.orientation = quaternion_msg_from_yaw(aGoal) # TODO
+		else:
+			self.listCoord = self.waypoints.pop()
+			
+			goal.pose.position.x = xGoal # TODO
+			goal.pose.position.y = yGoal# TODO
+			goal.pose.orientation = quaternion_msg_from_yaw(aGoal) # TODO
+
+
+		
 		self._goal_pub.publish(goal)
 
 

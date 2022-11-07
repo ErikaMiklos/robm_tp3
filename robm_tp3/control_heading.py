@@ -109,7 +109,7 @@ class ControlHeadingNode(Node):
         # - Commande proportionnelle à l'erreur
         # - Arrêt si suffisamment proche du but
         K = 1.0
-        w = - K * err
+        w = K * err
         
         # Envoi de la commande sur le topic ROS
         self.publish_speed_cmd(0.0, w)
